@@ -1,0 +1,94 @@
+class Fifa:
+    def __init__(self, time):
+        self.time = time
+
+
+class cadastrarTime(Fifa):
+    def __init__(self, time, cidade_do_time, mascote):
+        super().__init__(time)
+        self.cidade_do_time = cidade_do_time
+        self.mascote = mascote
+
+
+class jogador(Fifa):
+    def __init__(self, nome, time, num_camisa):
+        super().__init__(time)
+        self.num_camisa = num_camisa
+        self.nome = nome
+
+
+class tecnico(Fifa):
+    def __init__(self, nome, time, esquema_tatico):
+        super().__init__(time)
+        self.esquema_tatico = esquema_tatico
+        self.nome = nome
+
+    def dar_coletiva(self):
+        print(f'O técnico {self.nome} está dando uma coletiva de imprensa.')
+
+
+class auxiliar(tecnico):
+    def __init__(self, nome, time, esquema_tatico):
+        super().__init__(time, nome, esquema_tatico)
+
+    def dar_coletiva(self):
+        print(f'O auxiliar-técnico {self.nome} está dando uma coletiva de imprensa.')
+
+
+class preparadorFisico(tecnico):
+    def __init__(self, nome, time, esquema_tatico, elenco):
+        super().__init__(time, nome, esquema_tatico)
+        self.elenco = elenco
+
+    def dar_coletiva(self):
+        print(f'O preparador físico {self.nome} está dando uma coletiva de imprensa.')
+
+
+
+
+
+cadastro = int(input('''Cadastro:
+[1] Time
+[2] Jogador
+[3] Técnico
+[4] Auxiliar-Técnico
+[5] Preparador Físico
+
+'''))
+
+if cadastro == 1:
+    nometime = input('Time: ')
+    cidade = input('Cidade: ')
+    masc = input('Mascote: ')
+    time = cadastrarTime(nometime, cidade, masc)
+
+elif cadastro == 2:
+    jog = input('Nome: ')
+    nometime = input('Time: ')
+    num = input('Número: ')
+    jogador = jogador(jog, nometime, num)
+
+elif cadastro == 3:
+    tec = input('Nome: ')
+    nometime = input('Time: ')
+    esq = input('Digite o esquema tático: ')
+    tecnico = tecnico(tec, nometime, esq)
+    tecnico.dar_coletiva()
+
+elif cadastro == 4:
+    aux = input('Nome: ')
+    nometime = input('Time: ')
+    esq = input('Digite o esquema tático: ')
+    auxiliar = auxiliar(aux, nometime, esq)
+    auxiliar.dar_coletiva()
+
+elif cadastro == 5:
+    prep = input('Nome: ')
+    nometime = input('Time: ')
+    esq = input('Digite o esquema tático: ')
+    elenc = input('Prepara linha ou goleiro: ')
+    preparador = preparadorFisico(prep, nometime, esq, elenc)
+    preparador.dar_coletiva()
+
+else:
+    print('Opção Inválida.')
