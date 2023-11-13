@@ -29,7 +29,7 @@ class tecnico(Fifa):
 
 class auxiliar(tecnico):
     def __init__(self, nome, time, esquema_tatico):
-        super().__init__(time, nome, esquema_tatico)
+        super().__init__(nome, time, esquema_tatico)
 
     def dar_coletiva(self):
         print(f'O auxiliar-técnico {self.nome} está dando uma coletiva de imprensa.')
@@ -37,7 +37,7 @@ class auxiliar(tecnico):
 
 class preparadorFisico(tecnico):
     def __init__(self, nome, time, esquema_tatico, elenco):
-        super().__init__(time, nome, esquema_tatico)
+        super().__init__(nome, time, esquema_tatico)
         self.elenco = elenco
 
     def dar_coletiva(self):
